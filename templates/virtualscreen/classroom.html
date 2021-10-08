@@ -1,0 +1,50 @@
+{% extends 'virtualscreen/doodle_base.html' %}
+{% block content %}
+<div class="container">
+<form action="{% url 'cls' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" id='cls' name="lanuch" class="btn btn-outline-warning"
+                style="text-align: center; font-size: x-large;">Launch</button>
+</form>
+</div>
+{{ url|json_script:"command" }}
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://source.unsplash.com/1600x900/?nature,water" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/1600x900/?nature,water" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/1600x900/?nature,water" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock content %}
+
+<!-- ======= Footer ======= -->
+{% block script %}
+
+<script>
+const value = JSON.parse(document.getElementById('command').textContent);
+var clickEvent = new MouseEvent("click", {
+    "view": window,
+    "bubbles": true,
+    "cancelable": false
+});
+if (value.length > 0) {
+  var element = document.getElementById(value);
+  element.dispatchEvent(clickEvent);
+}
+</script>
+{% endblock script %}
+

@@ -1,0 +1,77 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="content-section">
+    <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+    </div>
+
+    <form method="POST" id='pro' class="form-control" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            {{ u_form|crispy}}
+            {{ p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-info">Update</button>
+        </div>
+    </form>
+</div>
+<div class='content-section'>
+    <h2 class="account-heading">Doodle</h2>
+    <legend class="border-bottom mb-4">Doodle Gallery</legend>
+    <div class="row">
+        <div class="col-lg-6">
+            {% for post in posts %}
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <a href="{{ post.pic.url }}"><img src="{{ post.pic.url }}" class="img-fluid rounded-start" alt="..."></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text mt-5">{{ post.description }}</p>
+                        </div>
+                    </div>
+                    <a
+                    class="btn btn-outline-danger"
+                    href="{% url 'post-delete' post.id %}"
+                    >Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <legend class="border-bottom mb-4">Upload Doodle</legend>
+    <form method="POST" action={% url 'create-post' %} class="form-control">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div id="div_id_username" class="control-group"> <label for="id_username" class="control-label requiredField">
+                    Doodle description<span class="asteriskField">*</span> </label>
+                <div class="controls"> <input type="text" name="description" maxlength="50"
+                        class="textinput textInput" required="" id="id_username">
+                    <p id="hint_id_username" class="help-block">Required. 50 characters or fewer. Letters, digits and
+                        @/./+/-/_ only.</p>
+                </div>
+            </div>
+            <div id="div_id_image" class="control-group"> <label for="id_image" class="control-label requiredField">
+                    Doodle Image<span class="asteriskField">*</span> </label>
+                <div class="controls">
+                    Change:
+                    <input type="file" name="image" accept="image/*" class="clearablefileinput" id="id_image">
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" name="doodle" class="btn btn-outline-info">Create Doodle</button>
+        </div>
+    </form>
+    
+</div>
+{% endblock content %}

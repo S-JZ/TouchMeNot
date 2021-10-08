@@ -1,0 +1,61 @@
+{% extends './base.html' %}
+{% block title %}
+Contact
+{% endblock title %}
+{% block navbar %}
+<li><a href="/">Home</a></li>
+{% endblock navbar %}
+{% block content %}
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="row mb-5 align-items-end">
+          <div class="col-md-6" data-aos="fade-up">
+            <p class="mb-0"><b><i>If you wish to contact us, please leave us a message.</i></b></p>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 ms-auto order-2" data-aos="fade-up">
+          
+          </div>
+
+          <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+            <form action="" method="POST" role="form">
+              {% csrf_token %}
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <label for="name">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+                <div class="col-md-12 form-group mt-3">
+                  <label for="name">Phone Number</label>
+                  <input type="text" class="form-control" name="phone-number" id="subject" required>
+                </div>
+                <div class="col-md-12 form-group mt-3 mb-3">
+                  <label for="name">Message</label>
+                  <textarea class="form-control" name="message" required></textarea>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <button type="submit" class="btn btn-info d-block w-100">Send Message</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ======= CTA Section ======= -->
+    
+
+  </main><!-- End #main -->
+{% endblock content %}

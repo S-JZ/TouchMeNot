@@ -1,0 +1,87 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-12 hero-text-image">
+      <div class="row">
+        <div class="col-lg-8 text-center text-lg-start">
+          <h1 data-aos="fade-right">Touch Me Not</h1>
+          <p class="mb-5" data-aos="fade-right" data-aos-delay="100">A ContactLess Ride</p>
+        </div>
+        <div class="col-lg-4 iphone-wrap">
+          <img src="{% static 'assets/img/phone_1.png' %}" alt="Image" class="phone-1" data-aos="fade-right">
+          <img src="{% static 'assets/img/phone_2.png' %}" alt="Image" class="phone-2" data-aos="fade-right"
+            data-aos-delay="200">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= Home Section ======= -->
+
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 ms-auto order-2">
+          <h2 class="mb-4">Virtual Doodle</h2>
+          <p class="mb-4">Try your hand at our virtual doodle!</p>
+          <p><a href="{% url 'vdoodle' %}" id="trydoodle" type="button" class="btn btn-primary" data-mdb-container="body"
+              data-mdb-toggle="popover">Try It!</a></p>
+        </div>
+        <div class="col-md-6" data-aos="fade-right">
+          <img src="{% static 'assets/img/undraw_svg_3.svg' %}" alt="Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 me-auto">
+          <h2 class="mb-4">Grocery Self Check-Out</h2>
+          <p class="mb-4">Get an experience of checking out from stores contactlessly!</p>
+          <p><a href="{% url 'checkout' %}" class="btn btn-primary">Try It!</a></p>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <img src="{% static 'assets/img/undraw_svg_2.svg' %}" alt="Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 me-auto">
+          <h2 class="mb-4">Seamlessly Communicate</h2>
+          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at reprehenderit optio,
+            laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit incidunt
+            dolore mollitia esse natus beatae.</p>
+          <p><a href="{% url 'classroom' %}" class="btn btn-primary">Download Now</a></p>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <img src="{% static 'assets/img/undraw_svg_2.svg' %}" alt="Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+</main><!-- End #main -->
+{% endblock content %}
+
+<!-- ======= Footer ======= -->

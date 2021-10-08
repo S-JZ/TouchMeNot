@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouchMeNot | Grocery Self-Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style type="text/css" id='woocommerce-inline-inline-css'>
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+
+        .woocommerce form .form-row .required {
+            visibility: visible;
+        }
+
+        /* Sidenav (global) */
+        #mdb-sidenav .fas {
+            color: #9FA6B2;
+        }
+
+        #mdb-sidenav a {
+            color: #4B5563;
+        }
+
+        #mdb-sidenav a.active {
+            background-color: rgba(18, 102, 241, .05);
+        }
+
+        #mdb-sidenav .sidenav-item {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        #mdb-sidenav .sidenav-item:first-child {
+            margin-top: 4px;
+        }
+
+        #mdb-sidenav .sidenav-item:last-child {
+            margin-bottom: 4px;
+        }
+    </style>
+    <link rel='stylesheet' id='dashicons-css' href='https://mdbcdn.b-cdn.net/wp-includes/css/dashicons.min.css?ver=5.8'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='admin-bar-css' href='https://mdbcdn.b-cdn.net/wp-includes/css/admin-bar.min.css?ver=5.8'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css'
+        href='https://mdbcdn.b-cdn.net/wp-includes/css/dist/block-library/style.min.css?ver=5.8' type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='wc-blocks-vendors-style-css'
+        href='https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=5.5.1'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='wc-blocks-style-css'
+        href='https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=5.5.1'
+        type='text/css' media='all' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script>
+        var woocs_is_mobile = 0;
+        var woocs_special_ajax_mode = 0;
+        var woocs_drop_down_view = "ddslick";
+        var woocs_current_currency = { "name": "EUR", "rate": 1, "symbol": "&euro;", "position": "left_space", "is_etalon": 0, "hide_cents": 1, "hide_on_front": 0, "rate_plus": "", "decimals": 0, "separators": "0", "description": "European Euro", "flag": "https:\/\/mdbootstrap.com\/wp-content\/plugins\/woocommerce-currency-switcher\/img\/no_flag.png" };
+        var woocs_default_currency = { "name": "USD", "rate": 1, "symbol": "&#36;", "position": "left", "is_etalon": 1, "hide_cents": 1, "hide_on_front": 0, "rate_plus": "", "decimals": 0, "separators": "0", "description": "USA dollar", "flag": "https:\/\/mdbootstrap.com\/wp-content\/plugins\/woocommerce-currency-switcher\/img\/no_flag.png" };
+        var woocs_redraw_cart = 1;
+        var woocs_array_of_get = '{}';
+
+        woocs_array_no_cents = '["JPY","TWD"]';
+
+        var woocs_ajaxurl = "https://mdbootstrap.com/wp-admin/admin-ajax.php";
+        var woocs_lang_loading = "loading";
+        var woocs_shop_is_cached = 1;
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+<form action="{% url 'chk' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" name="lanuch" class="btn btn-outline-warning"
+                style="text-align: center; font-size: x-large;">Launch</button>
+</form>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mb-4">
+                <!--Section: Checkout form-->
+                <section class="shadow-5 p-4">
+                    <form>
+                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <input type="text" id="form6Example1" class="form-control" style="
+                            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==');
+                            background-repeat: no-repeat;
+                            background-attachment: scroll;
+                            background-size: 16px 18px;
+                            background-position: 98% 50%;
+                        " value={{ word }} >
+                                    <label class="form-label" for="form6Example1" style="margin-left: 0px">First
+                                        name</label>
+                                    <div class="form-notch">
+                                        <div class="form-notch-leading" style="width: 9px"></div>
+                                        <div class="form-notch-middle" style="width: 68.8px"></div>
+                                        <div class="form-notch-trailing"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- RENDER WORD -->  <h3> {{ word }} </h3>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <input type="text" id="form6Example2" class="form-control">
+                                    <label class="form-label" for="form6Example2" style="margin-left: 0px">Last name</label>
+                                    <div class="form-notch">
+                                        <div class="form-notch-leading" style="width: 9px"></div>
+                                        <div class="form-notch-middle" style="width: 68px"></div>
+                                        <div class="form-notch-trailing"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form6Example3" class="form-control">
+                            <label class="form-label" for="form6Example3" style="margin-left: 0px">Company name</label>
+                            <div class="form-notch">
+                                <div class="form-notch-leading" style="width: 9px"></div>
+                                <div class="form-notch-middle" style="width: 98.4px"></div>
+                                <div class="form-notch-trailing"></div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form6Example4" class="form-control">
+                            <label class="form-label" for="form6Example4" style="margin-left: 0px">Address</label>
+                            <div class="form-notch">
+                                <div class="form-notch-leading" style="width: 9px"></div>
+                                <div class="form-notch-middle" style="width: 55.2px"></div>
+                                <div class="form-notch-trailing"></div>
+                            </div>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form6Example5" class="form-control">
+                            <label class="form-label" for="form6Example5" style="margin-left: 0px">Email</label>
+                            <div class="form-notch">
+                                <div class="form-notch-leading" style="width: 9px"></div>
+                                <div class="form-notch-middle" style="width: 40px"></div>
+                                <div class="form-notch-trailing"></div>
+                            </div>
+                        </div>
+
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                            <input type="number" id="form6Example6" class="form-control">
+                            <label class="form-label" for="form6Example6" style="margin-left: 0px">Phone</label>
+                            <div class="form-notch">
+                                <div class="form-notch-leading" style="width: 9px"></div>
+                                <div class="form-notch-middle" style="width: 44.8px"></div>
+                                <div class="form-notch-trailing"></div>
+                            </div>
+                        </div>
+
+                        <!-- Message input -->
+                        <div class="form-outline mb-4">
+                            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                            <label class="form-label" for="form6Example7" style="margin-left: 0px">Additional
+                                information</label>
+                            <div class="form-notch">
+                                <div class="form-notch-leading" style="width: 9px"></div>
+                                <div class="form-notch-middle" style="width: 135.2px;"></div>
+                                <div class="form-notch-trailing"></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-success btn-block mb-4">
+                            Place order
+                        </button>
+                    </form>
+                </section>
+                <!--Section: Checkout form-->
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <!--Section: Summary-->
+                <section>
+
+                    <div class="card">
+                        <div class="card-header bg-white text-center py-3">
+                            <h5 class="mb-0 fw-bold">Summary</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Product 1: </strong>&#x20b9 100</li>
+                                <li><strong>Product 2: </strong>&#x20b9 50</li>
+                                <li><strong>Product 2: </strong>&#x20b9 49</li>
+                            </ul>
+                        </div>
+
+                        <div class="card-footer bg-white d-flex justify-content-between py-3">
+                            <strong>Total amount:</strong>
+                            <strong>&#x20b9 199</strong>
+                        </div>
+                        <button type="button" class="btn btn-success btn-block mb-4">
+                            Place order
+                        </button>
+                    </div>
+                </section>
+                <!--Section: Summary-->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

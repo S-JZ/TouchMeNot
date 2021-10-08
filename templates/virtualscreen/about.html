@@ -1,0 +1,36 @@
+{% extends './doodle_base.html' %}
+{% block title %}
+About Us
+{% endblock title %}
+{% block navbar %}
+<li><a href="/">Home</a></li>
+{% endblock navbar %}
+{% block style %}
+body {
+      background-image: url('https://i.pinimg.com/originals/82/fc/9e/82fc9eb9b7b50c6bd36d12646200a96d.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+}
+{% endblock style %}
+<style>
+  .container {
+    font-family: 'Times New Roman', Times, serif;
+  }
+</style>
+{% block content %}
+<div class="container mt-3">
+  <h1>
+    <font color="black">Touch Me Not
+  </h1>
+
+  Social Distancing has become a necessity in the current times and thus it seems fair to expect a high demand
+  for products with contact-less interfaces.We have come up with simulation models for the same in three such
+  scenarios:
+
+  <li>Virtual Doodle</li>
+  <li>Grocery Self-Checkout</li>
+  <li>Classroom Teaching</li>
+  </font>
+</div>
+  {% endblock content %}

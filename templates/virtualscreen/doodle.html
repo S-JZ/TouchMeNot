@@ -1,0 +1,41 @@
+{% extends 'virtualscreen/doodle_base.html' %}
+{% load static %}
+{% block title %}
+Launch Doodle
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{{ url|json_script:"command" }}
+<form action="{% url 'lvdl' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" id='lvdl' name="lanuch" class="btn btn-outline-warning"
+                style="text-align: center; font-size: x-large;">Launch</button>
+</form>
+</div>
+<div class="container text-center">
+        <img src="{% static 'assets/img/doodly.png' %}" alt="Image" data-aos="fade-up" data-aos-easing="ease"
+            data-aos-delay="400">
+    </div>
+    <div class="container text-center my-5">
+        Sorry this is in development
+    </div>
+</div>
+{% endblock content %}
+
+<!-- ======= Footer ======= -->
+{% block script %}
+
+<script>
+const value = JSON.parse(document.getElementById('command').textContent);
+var clickEvent = new MouseEvent("click", {
+    "view": window,
+    "bubbles": true,
+    "cancelable": false
+});
+if (value.length > 0) {
+  var element = document.getElementById(value);
+  element.dispatchEvent(clickEvent);
+}
+</script>
+{% endblock script %}
