@@ -8,7 +8,7 @@ def v_doodle(check=False):
     import cv2
     import os
     import numpy as np
-    import HandTracks as ht
+    from . import HandTracks as ht
     from keras.models import load_model
 
     # Defining parameters for image processing
