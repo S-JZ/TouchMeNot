@@ -15,6 +15,7 @@ def phone_number(r, source):
     phone_data = r.record(source, duration=9)
     phone = r.recognize_google(phone_data)
     speak("Is your phone number: " + phone)
+    phone = "".join(phone.split())
     speak("Please say Yes to continue otherwise say No")
     return phone
 

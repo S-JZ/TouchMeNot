@@ -57,7 +57,7 @@ Home
           <li>No more waiting for the employee, check out from stores on your own contactlessly!<br></em></p>
           <form action='{% url 'checkout' %}' method='POST'>
               {% csrf_token %}
-              <input type='hidden' name='phone' value={{phone}}>
+              <input type='hidden' name='phone' value='{{phone}}'>
                <button id= 'chk' type='submit' value= 'chk' name='option' class="btn btn-primary" data-mdb-container="body" data-mdb-toggle="popover">Try It!</button>
             </form>   
             </div>

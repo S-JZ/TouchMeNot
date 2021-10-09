@@ -515,7 +515,7 @@ li[data-type="control_image"] img {
 <div class="container">
 <form action="{% url 'chk' %}" method="POST">
             {% csrf_token %}
-            <button type="submit" name="lanuch" class="btn btn-outline-warning"
+            <button type="submit" id='chk' value="{{phone}}" name="lanuch" class="btn btn-outline-warning"
                 style="text-align: center; font-size: x-large; visibility: hidden;">Launch</button>
 </form>
 </div>

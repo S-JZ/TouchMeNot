@@ -12,7 +12,7 @@ def home(request):
 def v_assistant(request):
     command = initialize_project()
     phone = ''
-    if 'chk' in command:
+    if command[0] == 'chk':
         command, phone = command[0], command[1]
     context = {'cmd': command, 'phone': phone}
     return render(request, 'virtualscreen/index2.html', context)
@@ -77,8 +77,9 @@ def checkout(request):
 
 def checkout_launch(request):
     if request.method == 'POST':
-        word = Virtual_Doodle.v_doodle(check=True)
-        context = {'word': word}
+        Navigation.navigate()
+        phone = request.POST['phone']
+        context = {'phone' : phone}
         return render(request, 'virtualscreen/form.html', context)
     return render(request, 'virtualscreen/form.html')
 
