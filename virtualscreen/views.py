@@ -100,3 +100,6 @@ def launch_vdl(request):
     Virtual_Doodle.v_doodle()
     messages.success(request, 'Thank you for using our Virtual Doodle!🌟')
     return render(request, 'virtualscreen/doodle.html')
+
+def inst(request):
+    return render(request, 'virtualscreen/instructions.html')

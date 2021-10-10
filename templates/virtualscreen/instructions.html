@@ -11,7 +11,7 @@ Home
         <div class="col-lg-8 text-center text-lg-start">
           <h1 data-aos="fade-right">Touch Me Not</h1>
           <p class="mb-5" data-aos="fade-right" data-aos-delay="100">A ContactLess Ride</p>
-          <p><a href="{% url 'v_as' %}" class="btn btn-primary">Voice Assistant</a></p>
+          
         </div>
         <div class="col-lg-4 iphone-wrap">
           <img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5ef3f7eec4f2390006f0c356%2FGUI--Graphical-User-Interface--concept-%2F960x0.jpg%3Ffit%3Dscale" alt="Image" class="phone-1" data-aos="right" width = "500" height = "300">
@@ -29,15 +29,11 @@ Home
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 me-auto">
-            <label><h1><font style='bold' color="#2673a6"> Virtual Doodle</font></h1></label>
-            <p class="mb-5">Try your hand at our virtual doodle! <br>
-              Trace out your art with your fingertips in air,
-              <br> what's more? You can even save it to your collection!
-            </p>
-            <form action='{% url 'vdoodle' %}' method='POST'>
-              {% csrf_token %}
-              <button type='submit' id='lvdl' value='lvdl' name='option' class="btn btn-primary" data-mdb-container="body" data-mdb-toggle="popover">Try It!</button>
-            </form>
+            <label><h1><font style = 'bold' color = "#2673a6"> Virtual Doodle</font></h1></label><br>
+              <label><h2><font style = 'bold' color = "#2673a6"> Instructions </font></h2></label>
+                 
+                <p><em>Selecting the Virtual Doodle will open a camera to record hand movements and a canvas for doodling.<br>Following hand gestures are used in our Virtual Doodle:<br><br>1) For doodling on the canvas<br>2) For clearing the canvas<br>Press q to quit.</em></p>
+
           </div>
           <div class="col-md-6" data-aos="fade-right">
              <img src="https://terabee.b-cdn.net/wp-content/uploads/2019/11/Gesture-recognition-with-sensors.jpg" alt="Image" class="img-fluid">
@@ -49,41 +45,41 @@ Home
   <section class="section">
     <div class="container">
       <div class="row align-items-center">
-       <label><h1><font style = 'bold' color = "#2673a6"> Grocery Self-Checkout</font></h1></label>
-          <p class="mb-4"><em>
-      <div class="col-md-6 me-auto">
-          The New 21st Century Shopping Experience where the world will be at your hands!
-          <li>Grocery Stores, Bookstores, Cafes and absolutely anywhere and everywhere checkout is required!
-          <li>No more waiting for the employee, check out from stores on your own contactlessly!<br></em></p>
-          <form action='{% url 'checkout' %}' method='POST'>
-              {% csrf_token %}
-              <input type='hidden' name='phone' value='{{phone}}'>
-               <button id= 'chk' type='submit' value= 'chk' name='option' class="btn btn-primary" data-mdb-container="body" data-mdb-toggle="popover">Try It!</button>
-            </form>   
-            </div>
+       <label><h1><font style = 'bold' color = "#2673a6"> Grocery Self-Checkout </font></h1></label>
+            <label><h2><font style = 'bold' color = "#2673a6"> Instructions </font></h2></label>
+             <p><em>Selecting Grocery Self Checkout will open camera to track hand movements.<br>
+Using the following gestures, the grocery form can be filled:<br><br>
+
+1) For navigation<br>
+2) To change mode to click<br>
+3) For clicking/selecting<br>
+4) For scrolling up<br>
+5) For scrolling down<br>
+Press q to quit.</em></p></div>
         <div class="col-md-6" data-aos="fade-left">
           <img src="https://www.rishabhsoft.com/wp-content/uploads/2021/05/How-Retailers-Can-Implement-a-Contactless-Retail-Experience.jpg" alt="Image" class="img-fluid">
+        </div>
       </div>
     </div>
   </section>
-
+  
 
   <section class="section">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 me-auto">
           <label><h1><font style = 'bold' color = "#2673a6"> Classroom Teaching</font></h1></label>
-          <p class="mb-4"><em>
-          There is absolutely no need to touch any of the common system setups anymore!
-          <br>
-          Teachers can use it for
-          navigating through presentations and trying out select, scroll and type functionality with ease.
-          </em></p>
-          <form action="{% url 'classroom' %}" method='POST'>
-              {% csrf_token %}
-               <button id='cls' type='submit' name='option' value='cls' class="btn btn-primary" data-mdb-container="body" data-mdb-toggle="popover">Try It!</button>
-          </form> 
-        </div>
+           <label><h2><font style = 'bold' color = "#2673a6"> Instructions </font></h2></label>
+            
+          <p><em>Selecting Classroom Teaching will open camera to track hand movements.<br>
+For navigating through the gallery, use the following gestures:<br><br>
+
+1) For navigation<br>
+2) To change mode to click<br>
+3) For clicking/selecting<br>
+4) For scrolling up<br>
+5) For scrolling down<br>
+Press q to quit.</em></p></div>
         <div class="col-md-6" data-aos="fade-right">
           <img src="https://st4.depositphotos.com/1000975/24048/i/600/depositphotos_240480460-stock-photo-cognitive-computing-concept-as-modern.jpg" alt="Image" class="img-fluid">
         </div>
@@ -92,25 +88,10 @@ Home
   </section>
 
 
-{{ cmd|json_script:"command" }}
+
 
 
 </main><!-- End #main -->
 {% endblock content %}
 
 <!-- ======= Footer ======= -->
-{% block script %}
-
-<script>
-const value = JSON.parse(document.getElementById('command').textContent);
-var clickEvent = new MouseEvent("click", {
-    "view": window,
-    "bubbles": true,
-    "cancelable": false
-});
-if (value.length > 0) {
-  var element = document.getElementById(value);
-  element.dispatchEvent(clickEvent);
-}
-</script>
-{% endblock script %}

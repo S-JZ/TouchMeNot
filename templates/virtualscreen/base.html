@@ -78,11 +78,13 @@
                 <ul>
                     {% block navbar %}{% endblock navbar %}
                     {% if user.is_authenticated %}
+                    <li><a href="{% url 'instructions' %}">Instructions</a></li>
                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     <li><a href="{% url 'about' %}">About Us</a></li>
                     <li><a href={% url 'profile' %}>Profile</a></li>
                     <li><a href="{% url 'sign-out' %}">Sign Out</a></li> 
                     {% else %}
+                    <li><a href="{% url 'instructions' %}">Instructions</a></li>
                     <li><a href="{% url 'about' %}">About Us</a></li>
                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     <li><a href="{% url 'sign-up' %}">Sign Up</a></li> 
