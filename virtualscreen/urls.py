@@ -11,6 +11,7 @@ urlpatterns = [
     path('class-launch/', views.class_launch, name='cls'),
     path('instructions/', views.inst, name='instructions'),
     # path('grocery_tute/', views.groceryplace, name='groceryplace'),
+    path('thankyou/',views.gf_thanks, name='thankyou'),
     path('checkout/', views.checkout, name='checkout'),
     path('checkout/launch', views.checkout_launch, name='chk'),
     path('key/', views.virtual_board, name='virtual-keyboard'),

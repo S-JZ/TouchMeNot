@@ -12,7 +12,9 @@ def home(request):
 def v_assistant(request):
     command = initialize_project()
     phone = ''
-    if command[0] == 'chk':
+    if command == None:
+        command = ''
+    elif command[0] == 'chk':
         command, phone = command[0], command[1]
     context = {'cmd': command, 'phone': phone}
     return render(request, 'virtualscreen/index2.html', context)
@@ -71,8 +73,8 @@ def checkout(request):
         url = request.POST['option']
         phone = request.POST['phone']
         context = {'url': url, 'phone': phone}
-        return render(request, 'virtualscreen/form.html', context)
-    return render(request, 'virtualscreen/form.html')
+        return render(request, 'virtualscreen/gf.html', context)
+    return render(request, 'virtualscreen/gf.html')
 
 
 def checkout_launch(request):
@@ -80,8 +82,11 @@ def checkout_launch(request):
         Navigation.navigate()
         phone = request.POST['phone']
         context = {'phone' : phone}
-        return render(request, 'virtualscreen/form.html', context)
-    return render(request, 'virtualscreen/form.html')
+        return render(request, 'virtualscreen/gf.html', context)
+    return render(request, 'virtualscreen/gf.html')
+
+def gf_thanks(request):
+    return render(request, 'virtualscreen/gf_tq.html')
 
 
 def virtual_board(request):
