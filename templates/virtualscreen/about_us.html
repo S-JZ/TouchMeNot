@@ -13,8 +13,8 @@ body {
 }
 
 .social-link {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height:50px;
     border: 1px solid #ddd;
     display: flex;
     align-items: center;
@@ -28,11 +28,13 @@ body {
 .social-link:hover, .social-link:focus {
     background: #ddd;
     text-decoration: none;
-    color: #555;
+    color: dark blue;
 }
 {% endblock style %}
 {% block content %}
 <!-- For demo purpose -->
+<!--Social Media icon-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container py-5">
     <div class="row text-center text-white">
         <div class="col-lg-8 mx-auto">
@@ -74,14 +76,13 @@ body {
 
         <!-- Team item -->
         <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Anuskha Pandey</h5><span class="small text-uppercase text-muted"></span>
-                <ul class="social mb-0 list-inline mt-3">
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
+        </ul>
+
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static 'assets/img/Anushka_Pandey.jpeg' %}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Anushka Pandey</h5><span class="small text-uppercase text-muted">IIT, Patna</span>
+                <br>
+                <li class="list-inline-item"> <a href="https://www.linkedin.com/in/anushka-pandey-a1aa32221/" class="social-link"><i class="fa fa-linkedin-square" style="font-size:36px"></i></a></li>
+
             </div>
         </div><!-- End -->
 
@@ -97,7 +98,6 @@ body {
                 </ul>
             </div>
         </div><!-- End -->
-
          <div class="col-xl-3 col-sm-6 mb-5">
             <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                 <h5 class="mb-0">Gayatri kannikanti</h5><span class="small text-uppercase text-muted"></span>
@@ -108,7 +108,8 @@ body {
                     <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
-        </div><!-- End -->
+        </div>
+        <!-- End -->
     </div>
 </div>
 {% endblock content %}
