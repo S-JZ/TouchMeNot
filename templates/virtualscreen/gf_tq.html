@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html class="supernova"><head>
+{% load static %}
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F212821133619450" title="oEmbed Form">
 <link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F212821133619450" title="oEmbed Form">
@@ -535,7 +536,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"thankYou","qid":"1","text":"Thank Y
   <input type="hidden" id="cardinalOrderNumber" value="" />
   <div role="main" class="form-all">
     <div class="formLogoWrapper Center">
-      <img loading="lazy" class="formLogoImg" src="https://www.jotform.com/uploads/luiswilliams/form_files/33d05527-384f-4a84-ac96-13820abe886e_200x200.5d7a1cae91e081.66634173.5f04c76f86df08.45863584.png" height="200" width="200">
+      <img loading="lazy" class="formLogoImg" src='{% static "assets/img/groform.png" %}' height="200" width="200">
     </div>
     <style>
       .formLogoWrapper { display:inline-block; position: absolute; width: 100%;} .form-all:before { background: none !important;} .formLogoWrapper.Center { top: -210px; text-align: center;}
