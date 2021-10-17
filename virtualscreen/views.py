@@ -80,7 +80,7 @@ def checkout(request):
 def checkout_launch(request):
     if request.method == 'POST':
         Navigation.navigate()
-        phone = request.POST['phone']
+        phone = request.POST.get('phone')
         context = {'phone' : phone}
         return render(request, 'virtualscreen/gf.html', context)
     return render(request, 'virtualscreen/gf.html')

@@ -511,8 +511,13 @@ li[data-type="control_image"] img {
       }
     /* Injected CSS Code */
 </style>
-
-
+<div class="container">
+<form action="{% url 'chk' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" id='chk' value="{{phone}}" name="lanuch" class="btn btn-outline-warning"
+                style="text-align: center; font-size: x-large; visibility: hidden;">Launch</button>
+</form>
+</div>
 <script src="https://cdn01.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
 <script src="https://cdn02.jotfor.ms/static/jotform.forms.js?3.3.28212" type="text/javascript"></script>
 <script src="https://cdn03.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.28212" type="text/javascript"></script>
@@ -682,8 +687,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1000_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1000][item_0]" id="input_46_quantity_1000_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -739,8 +743,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1001_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1001][item_0]" id="input_46_quantity_1001_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -795,8 +798,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1005_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1005][item_0]" id="input_46_quantity_1005_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -851,8 +853,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1007_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1007][item_0]" id="input_46_quantity_1007_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -907,8 +908,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1008_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1008][item_0]" id="input_46_quantity_1008_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -963,8 +963,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1009_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1009][item_0]" id="input_46_quantity_1009_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -1019,8 +1018,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1010_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1010][item_0]" id="input_46_quantity_1010_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -1075,8 +1073,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1011_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1011][item_0]" id="input_46_quantity_1011_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -1131,8 +1128,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1012_0" style="min-height:13px" aria-hidden="false"> litre </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1012][item_0]" id="input_46_quantity_1012_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -1187,8 +1183,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1013_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1013][item_0]" id="input_46_quantity_1013_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -1243,8 +1238,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                       <label class="form-sub-label" for="input_46_quantity_1014_0" style="min-height:13px" aria-hidden="false"> kg </label>
                       <span class="select_cont">
                         <select class="form-dropdown" name="q46_myProducts[special_1014][item_0]" id="input_46_quantity_1014_0">
-                          <option value="0"> 0 </option>
-			  <option value="1"> 1 </option>
+			                    <option value="1"> 1 </option>
                           <option value="2"> 2 </option>
                           <option value="3"> 3 </option>
                         </select>
@@ -1253,25 +1247,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
                   </div>
                 </div>
               </span>
-              <div class="payment_footer new_ui ">
-                <div class="total_area">
-                  <div class="form-payment-total">
-                    <div id="total-text">
-                      Total
-                    </div>
-                    <div class="form-payment-price">
-                      <span data-wrapper-react="true">
-                        <span id="payment_total">
-                          0.00
-                        </span>
-                        <span class="currency_abr">
-                          INR
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -1300,7 +1276,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"groceryOrder","qid":"1","text":"Gro
       </li>
     </ul>
   </div>
-
+  {{ url|json_script:"command" }}
 </form></body>
 </html>
 
