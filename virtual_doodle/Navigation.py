@@ -9,8 +9,8 @@ def navigate():
 
     def hover_and_click(status, click, x, y):
         if status:
-            pyautogui.moveTo(x, y, duration=0.07) 
-            time.sleep(random.uniform(0.001, 0.003))
+            pyautogui.moveTo(x, y, duration=0.05) 
+            #time.sleep(random.uniform(0.001, 0.003))
         if click:
             pyautogui.click(x=x, y=y, clicks=1, button='left')
 
@@ -52,7 +52,7 @@ def navigate():
         #print ("Current position: " + str(mouse.position))
         success, frames = cap.read()
         frame = cv2.flip(frames, 1)
-        frame = cv2.resize(frame, (int(wScr), int(hScr)))
+        frame = cv2.resize(frame,(int(wScr), int(hScr)))   #(
         # Draw hand landmarks
         frame = hand_map.locate_hands(frame)
         # Find Landmarks on hand
@@ -68,7 +68,7 @@ def navigate():
             if up_fingers[1] == 1 and up_fingers[2] == 0:
                 hover_and_click(True, False, index_x, index_y)
             if up_fingers[1] == 1 and up_fingers[2] == 1:
-                if time.time() - t1 > 4:
+                if time.time() - t1 > 2:
                     hover_and_click(True, True, index_x, index_y)
                     t1 = time.time()
             l1, img1 = hand_map.calc_dis(tips[0], tips[1], frame)

@@ -10,15 +10,15 @@ Launch Doodle
 <form action="{% url 'lvdl' %}" method="POST">
             {% csrf_token %}
             <button type="submit" id='lvdl' name="lanuch" class="btn btn-outline-warning"
-                style="text-align: center; font-size: x-large;">Launch</button>
+                style="text-align: center; font-size: x-large; visibility: hidden">Launch</button>
 </form>
 </div>
-<div class="container text-center">
-    <img src="{% static "assets/img/ins_VD.jpeg" %}"class="d-block w-100" alt="...">
-  
-         
-    </div>
-    
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center text-md-left p-2">
+    <img src="{% static "assets/img/ins_VD.jpeg" %}" class="d-block w-100" alt="Gestures">
+</div>
+</div>
 </div>
 {% endblock content %}
 

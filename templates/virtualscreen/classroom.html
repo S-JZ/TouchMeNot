@@ -5,7 +5,7 @@
 <form action="{% url 'cls' %}" method="POST">
             {% csrf_token %}
             <button type="submit" id='cls' name="lanuch" class="btn btn-outline-warning"
-                style="text-align: center; font-size: x-large;">Launch</button>
+                style="text-align: center; font-size: x-large; visibility: hidden">Launch</button>
 </form>
 </div>
 {{ url|json_script:"command" }}
