@@ -72,14 +72,14 @@ def navigate():
                     hover_and_click(True, True, index_x, index_y)
                     t1 = time.time()
             l1, img1 = hand_map.calc_dis(tips[0], tips[1], frame)
-            if l1 < 10:
+            if l1 < 15:
                 status = False
             if not status:
                 if up_fingers[0] == up_fingers[1] == up_fingers[2] == up_fingers[3] == up_fingers[4] == 1:
                     status = True
                 else:
                     l2, img2 = hand_map.calc_dis(tips[0], tips[1], frame)
-                    if l2 > 60:
+                    if l2 > 40:
                         standard_scroll()
                     else:
                         standard_scroll('up')
@@ -90,4 +90,3 @@ def navigate():
 
     cap.release()
     cv2.destroyAllWindows()
-
