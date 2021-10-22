@@ -72,7 +72,7 @@ def navigate():
                     hover_and_click(True, True, index_x, index_y)
                     t1 = time.time()
             l1, img1 = hand_map.calc_dis(tips[0], tips[1], frame)
-            if l1 < 15:
+            if l1 < 10:
                 status = False
             if not status:
                 if up_fingers[0] == up_fingers[1] == up_fingers[2] == up_fingers[3] == up_fingers[4] == 1:
