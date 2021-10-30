@@ -4,6 +4,7 @@ from virtual_doodle.speech import initialize_project
 from virtual_doodle import Virtual_Doodle, Navigation
 from .models import Contact
 from django.contrib import messages
+import cv2
 
 
 def home(request):

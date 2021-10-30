@@ -79,7 +79,7 @@ def navigate():
                     status = True
                 else:
                     l2, img2 = hand_map.calc_dis(tips[0], tips[1], frame)
-                    if l2 > 60:
+                    if l2 > 40:
                         standard_scroll()
                     else:
                         standard_scroll('up')
@@ -90,4 +90,3 @@ def navigate():
 
     cap.release()
     cv2.destroyAllWindows()
-
