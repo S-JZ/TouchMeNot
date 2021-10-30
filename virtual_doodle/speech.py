@@ -25,96 +25,50 @@ def phone_number(r, source):
     return phone
 
 
-def initialize_project(count = 0):
+def initialize_project(init=True):
     import speech_recognition as sr
     import os
     import pyttsx3
   
-
     r = sr.Recognizer()
     engine = pyttsx3.init()
-    
-    
-    
-   
+    if init:
+        msg = "Welcome to Touch Me Not. What would you like to explore? Virtual Doodle, Classroom or Self Checkout? "
+        speak(msg)
+    init = False
     try:
         with sr.Microphone() as source:
-            speak("How may I help you?")
-            # read the audio data from the default microphone
             audio_data = r.record(source, duration=2)
-            print("Recognizing...")
-            # convert speech to text
-            text = r.recognize_google(audio_data)
-            if "".join(text.lower().split()) == "touchmenot" and count == 0:
-                count += 1
-                
-                msg = "Welcome to Touch Me Not. Please choose the option you would like to proceed on: "
+            command = r.recognize_google(audio_data)
+            if "".join(command.lower().split()) == "virtualdoodle":
+                msg = "Virtual Doodle has been activated."
                 speak(msg)
-                audio_data = r.record(source, duration=2)
-                command = r.recognize_google(audio_data)
-                if "".join(command.lower().split()) == "virtualdoodle":
-                    msg = "Virtual Doodle has been activated."
-                    speak(msg)
-                    return "lvdl"
-                elif "".join(command.lower().split()) == "classroom":
-                    msg = "Virtual Classroom has been activated."
-                    speak(msg)
-                    return "cls"
-                elif "".join(command.lower().split()) == "checkout":
-                    phone = phone_number(r, source)
-                    confirm_data = r.record(source, duration=2)
-                    confirm = r.recognize_google(confirm_data)
-                    print(confirm)
-                    if "".join(confirm.lower().split()) == "yes":
-                        return "chk", phone
-                    else:
-                        phone = phone_number(r, source)
-                else:
-                    msg = "I am sorry but " + command + \
-                        " is not a valid command. Please say Touch Me Not to proceed again. If you wish to exit, please say Exit."
-                    speak(msg)
-                    return initialize_project(count)
-            if( "".join(text.lower().split()) == "touchmenot" and count > 0):
-                msg = " Please choose the option you would like to proceed on: "
+                return "lvdl"
+            elif "".join(command.lower().split()) == "classroom":
+                msg = "Virtual Classroom has been activated."
                 speak(msg)
-                audio_data = r.record(source, duration=2)
-                command = r.recognize_google(audio_data)
-                if "".join(command.lower().split()) == "virtualdoodle":
-                    msg = "Virtual Doodle has been activated."
-                    speak(msg)
-                    return "lvdl"
-                elif "".join(command.lower().split()) == "classroom":
-                    msg = "Virtual Classroom has been activated."
-                    speak(msg)
-                    return "cls"
-                elif "".join(command.lower().split()) == "checkout":
-                    phone = phone_number(r, source)
-                    confirm_data = r.record(source, duration=2)
-                    confirm = r.recognize_google(confirm_data)
-                    print(confirm)
-                    if "".join(confirm.lower().split()) == "yes":
-                        return "chk", phone
-                    else:
-                        phone = phone_number(r, source)
+                return "cls"
+            elif "".join(command.lower().split()) == "checkout":
+                phone = phone_number(r, source)
+                confirm_data = r.record(source, duration=2)
+                confirm = r.recognize_google(confirm_data)
+                print(confirm)
+                if "".join(confirm.lower().split()) == "yes":
+                    return "chk", phone
                 else:
-                    msg = "I am sorry but " + command + \
-                        " is not a valid command. Please say Touch Me Not to proceed again. If you wish to exit, please say Exit."
-                    speak(msg)
-                    return initialize_project(count)
-
-            elif "".join(text.lower().split()) == "exit":
+                    phone = phone_number(r, source)
+            elif "".join(command.lower().split()) == "exit":
                 msg = "Bye. See you later."
                 speak(msg)
-                return None
             else:
-                msg = "I am sorry but " + text + \
-                    " is not a valid command. Please say Touch Me Not to proceed again. If you wish to exit, please say Exit."
+                msg = "I am sorry but " + command + \
+                    " is not a valid command. If you wish to exit, please say Exit."
                 speak(msg)
-                return initialize_project(count)
+                return initialize_project(init)
     except:
-        msg = "I am sory I didn't get that. Please say Touch Me Not to proceed again. If you wish to exit, please say Exit."
+        msg = "I am sorry I didn't get that. If you wish to exit, please say Exit."
         speak(msg)
-        return initialize_project(count)
+        return initialize_project(init)
 
 
 def launch_project(url):
