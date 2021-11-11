@@ -18,9 +18,9 @@ def navigate():
 
     def standard_scroll(key='down'):
         if key == 'down':
-            pyautogui.scroll(-30)
+            pyautogui.scroll(-20)
         else:
-            pyautogui.scroll(30)
+            pyautogui.scroll(20)
 
 
 
