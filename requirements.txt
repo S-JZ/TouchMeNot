@@ -106,7 +106,7 @@ toml==0.10.2
 typing-extensions==3.7.4.3
 tzdata==2021.2.post0
 tzlocal==3.0
-urllib3==1.25.11
+urllib3==1.26.5
 virtualenv==20.0.35
 wcwidth==0.2.5
 Werkzeug==1.0.1
