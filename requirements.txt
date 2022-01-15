@@ -57,7 +57,7 @@ opencv-contrib-python==4.5.3.56
 opencv-python==4.5.3.56
 opt-einsum==3.3.0
 packaging==21.0
-Pillow==8.3.1
+Pillow==9.0.0
 pipfile==0.0.2
 pipwin==0.5.1
 prompt-toolkit==3.0.18
